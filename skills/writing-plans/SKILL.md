@@ -150,22 +150,13 @@ After writing the complete plan, look at the spec with fresh eyes and check the 
 
 If you find issues, fix them inline. No need to re-review — just fix and move on. If you find a spec requirement with no task, add the task.
 
-## Execution Handoff
+## Execution Handoff & Mode Transition Gate
 
-After saving the plan, offer execution choice:
+Under the workspace workflow mode policy, planning completes when the plan is saved and approved by your human partner.
+Do NOT automatically transition to execution or write production code while in Plan mode.
+Report:
 
-**"Plan complete and saved to `docs/superpowers/plans/<filename>.md`. Two execution options:**
+> "Plan complete and saved to `<path>`. Please review and confirm to approve the plan. Once approved, switch to Code mode (`mode code`) to begin execution."
 
-**1. Subagent-Driven (recommended)** - I dispatch a fresh subagent per task, review between tasks, fast iteration
-
-**2. Inline Execution** - Execute tasks in this session using executing-plans, batch execution with checkpoints
-
-**Which approach?"**
-
-**If Subagent-Driven chosen:**
-- **REQUIRED SUB-SKILL:** Use superpowers:subagent-driven-development
-- Fresh subagent per task + two-stage review
-
-**If Inline Execution chosen:**
-- **REQUIRED SUB-SKILL:** Use superpowers:executing-plans
-- Batch execution with checkpoints for review
+Under the single-agent constraint, execution uses `superpowers:executing-plans` sequentially with mandatory phase verification gates and hard stops.
+Do not dispatch subagents or use `subagent-driven-development` unless your human partner explicitly directs it.

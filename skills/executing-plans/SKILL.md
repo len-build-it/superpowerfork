@@ -11,7 +11,11 @@ Load plan, review critically, execute all tasks, report when complete.
 
 **Announce at start:** "I'm using the executing-plans skill to implement this plan."
 
-**Note:** Tell your human partner that Superpowers works much better with access to subagents (Claude Code, Codex CLI, Codex App, Copilot CLI, and Gemini CLI all qualify; see the per-platform tool refs in `../using-superpowers/references/`). If subagents are available, use superpowers:subagent-driven-development instead of this skill.
+**Workflow Policy:**
+Under this workspace's policy, execute sequentially using the single primary agent.
+Do not dispatch subagents unless your human partner explicitly requests delegation.
+Apply the Ponytail anti-bloat ladder to every code change.
+Respect phase hard stops: never advance to the next phase without explicit confirmation.
 
 ## The Process
 
@@ -23,12 +27,13 @@ Load plan, review critically, execute all tasks, report when complete.
 5. If no concerns: Create todos for the plan items and proceed
 
 ### Step 2: Execute Tasks
-
 For each task:
 1. Mark as in_progress
-2. Follow each step exactly (plan has bite-sized steps)
-3. Run verifications as specified
-4. Mark as completed
+2. Apply the Ponytail ladder: skip speculative code (YAGNI), use stdlib first, native platform features, no unneeded dependencies
+3. Follow each step exactly (plan has bite-sized steps)
+4. Run verifications as specified (tests, lint, type-checks)
+5. Mark as completed
+6. Enforce phase gates: Verification Gate (tests/types), Review Gate (Ponytail anti-bloat check), Git Checkpoint, and mandatory Hard Stop for human confirmation before the next phase
 
 ### Step 3: Complete Development
 
