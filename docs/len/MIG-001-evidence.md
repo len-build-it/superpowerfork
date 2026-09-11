@@ -225,7 +225,9 @@ Environment: Windows 11, PowerShell, Node.js v20+, Git 2.45+
   - Successor notice added to root `README.md` directing users and agents to the Superpowers fork.
 - Legacy Archive Refresh & Preservation:
   - Preserved canonical policy hash `86EE90450B7032F2CC0AED01DE32F069D81E555F6BBAEE08B286528861433463` byte-for-byte in `docs/len/AGENTS.original.md`.
-  - Legacy repository updated with successor pointer and archived safely.
+  - Legacy repository updated with successor pointer in commit `c2b0484` (`docs(archive): record Superpowers successor and recovery`).
+  - Refreshed Git bundle: `Len-s_Toolkit_backup_2026-09-11/Len-s_Toolkit.bundle` (SHA-256: `DD4EC52BAFF8407348E6E5CCAC36405D23DE347BCC2A73B9BD2C2F7FDF892EEA`, 7 refs, complete history through `c2b0484`).
+  - Disposable clone restore verified matching commit `c2b0484` and exact policy hash.
 - Verification Checks:
   - All mode and behavioral tests passing (13/13).
   - All policy integration and hook tests passing (8/8 and 6/6).
