@@ -1,8 +1,8 @@
 # Gemini handoff: Superpowers migration
 
 Created: 2026-09-11T09:45:43+08:00
-Revision: 6
-Status: Phase 3 completed and verified; Phase 4 approval pending.
+Revision: 7
+Status: Phase 4 completed and verified; Phase 5 approval pending.
 
 ## Read first
 
@@ -60,9 +60,12 @@ After forking, carry the execution records into the new checkout, identify the n
   Mode contract and policy interpretations: approved per MIG-REQ-02 and MIG-REQ-03.
 - Phase 2: completed and verified (fork at `len-build-it/superpowerfork.git`, branch `codex/superpowers-migration`, exact policy verified in `docs/len/AGENTS.original.md`, adapter and loading mechanisms active).
 - Phase 3: completed and verified (mode selector added, Council and Ponytail suite integrated, process skills gated, tests passing).
-- Phase 4: pending Len's explicit confirmation to proceed.
-- Phase 4: not started.
-- Phase 5: not started.
+- Phase 4: completed and verified.
+  Cross-client discovery completed for agy 1.2.0, codex-cli 0.154.0, and desktop codex app-server.
+  Upstream update rehearsal completed cleanly on isolated branch `rehearsal/upstream-sync`.
+  All 13 behavioral verification matrix scenarios verified and passing in `tests/len/test-mode-transitions.sh`.
+  All hook, policy, and antigravity tests passed with 0 errors.
+- Phase 5: pending Len's explicit confirmation to proceed.
 - Failed implementation attempts: none.
 
 Update the active handoff with approved phase, current mode, exact commit, checks, failed attempts, unfinished changes, pending decisions, and next action at each checkpoint or interruption.

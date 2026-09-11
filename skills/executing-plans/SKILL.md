@@ -33,7 +33,7 @@ For each task:
 3. Follow each step exactly (plan has bite-sized steps)
 4. Run verifications as specified (tests, lint, type-checks)
 5. Mark as completed
-6. Enforce phase checkpoints: run verification gate, perform Ponytail review, commit, and STOP for human confirmation before the next phase
+6. Enforce phase gates: Verification Gate (tests/types), Review Gate (Ponytail anti-bloat check), Git Checkpoint, and mandatory Hard Stop for human confirmation before the next phase
 
 ### Step 3: Complete Development
 

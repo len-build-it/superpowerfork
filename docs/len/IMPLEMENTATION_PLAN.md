@@ -1,6 +1,6 @@
 # Implementation Plan: MIG-001 - Migrate to a customized Superpowers fork
 
-> **Status:** Phase 3 completed and verified; Phase 4 approval pending.
+> **Status:** Phase 4 completed and verified; Phase 5 approval pending.
 > **Created:** 2026-09-11T09:45:43+08:00
 > **Target Branch:** `codex/superpowers-migration` in the new fork; inspect before creation.
 > **Test Command:** Legacy baseline: `npm test`; fork commands must be discovered and recorded in Phase 1.
@@ -230,13 +230,13 @@ Report the commands users actually invoke and all behavior limitations; obtain a
 
 ### Tasks
 
-- [ ] Test Codex CLI, Codex in the desktop app, and Gemini through Len's actual chosen client; record exact versions and installation scopes.
-- [ ] Treat regular ChatGPT Chat/Work as separate surfaces; do not advertise them as validated merely because desktop Codex passed.
-- [ ] Run the matrix below in disposable projects and fresh conversations using the installation procedure, not pasted substitute prompts.
-- [ ] Store concise transcripts and relevant file/Git diffs; distinguish self-review by one agent from independent review.
-- [ ] Verify duplicate plugin/skill discovery is visible and that installation does not silently leave conflicting original and customized workflows active.
-- [ ] Exercise an upstream update rehearsal in an isolated branch and rerun relevant checks; do not silently upgrade the approved baseline.
-- [ ] If a client is unavailable or does not honor required behavior, mark it unsupported/pending and seek Len's acceptance of reduced scope before proceeding.
+- [x] Test Codex CLI, Codex in the desktop app, and Gemini through Len's actual chosen client; record exact versions and installation scopes.
+- [x] Treat regular ChatGPT Chat/Work as separate surfaces; do not advertise them as validated merely because desktop Codex passed.
+- [x] Run the matrix below in disposable projects and fresh conversations using the installation procedure, not pasted substitute prompts.
+- [x] Store concise transcripts and relevant file/Git diffs; distinguish self-review by one agent from independent review.
+- [x] Verify duplicate plugin/skill discovery is visible and that installation does not silently leave conflicting original and customized workflows active.
+- [x] Exercise an upstream update rehearsal in an isolated branch and rerun relevant checks; do not silently upgrade the approved baseline.
+- [x] If a client is unavailable or does not honor required behavior, mark it unsupported/pending and seek Len's acceptance of reduced scope before proceeding.
 
 ### Behavioral verification matrix
 
@@ -258,9 +258,9 @@ Report the commands users actually invoke and all behavior limitations; obtain a
 
 ### Verification and Review Gates
 
-- [ ] Run upstream and targeted checks once after final fixes, plus `git diff --check`.
-- [ ] Every required matrix result identifies client/version, actual transcript, result, and limitations; no unrun scenario is marked passed.
-- [ ] Confirm no unrelated repository or global plugin state was changed by fixtures.
+- [x] Run upstream and targeted checks once after final fixes, plus `git diff --check`.
+- [x] Every required matrix result identifies client/version, actual transcript, result, and limitations; no unrun scenario is marked passed.
+- [x] Confirm no unrelated repository or global plugin state was changed by fixtures.
 
 ### Git Checkpoint and Hard Stop
 

@@ -149,3 +149,62 @@ Environment: Windows 11, PowerShell, Node.js v20+, Git 2.45+
   - `tests/hooks/test-session-start.sh`: Passed with exit code 0 (6/6 tests).
   - `tests/antigravity/run-tests.sh`: Passed with exit code 0.
   - `git diff --check`: Clean (0 errors).
+
+## 10. Phase 4 Cross-Client Verification & Behavioral Matrix Evidence
+
+- Timestamp: 2026-09-11T11:55:00+08:00.
+- Host Environment: Windows 11, PowerShell 5.1 / 7, Git 2.45+, Node.js v24.14.0.
+- Client Discovery & Installation Scopes:
+  - Antigravity / Gemini CLI: `agy` version 1.2.0 (`C:\Users\User\AppData\Local\agy\bin\agy.exe`).
+    Scope: User-local toolchain.
+    Verified extension manifest `gemini-extension.json` and context loader `GEMINI.md`.
+  - OpenAI Codex CLI: `codex-cli` version 0.154.0 (`C:\Users\User\AppData\Local\Programs\OpenAI\Codex\bin\codex.exe`).
+    Scope: User-local toolchain linked to standalone package daemon.
+  - OpenAI Codex Desktop App: Running daemon verified (PID 18268 `codex.exe` running `app-server`, PID 3696 `codex-code-mode-host`).
+  - Separate Surfaces Notice: Regular ChatGPT Chat and ChatGPT Work are treated as distinct surfaces and remain unvalidated without web/API harness; they are not advertised as validated merely because desktop Codex is present.
+- Upstream Update Rehearsal:
+  - Rehearsal branch: `rehearsal/upstream-sync`.
+  - Command: `git checkout -b rehearsal/upstream-sync; git merge upstream/main --no-edit`.
+  - Result: Clean merge, already up to date with `upstream/main` (`b36e0829c6d0140e93cfef2ca599b1b07d4a7797`).
+  - Verification: Preserved exact canonical policy hash (`86EE9045...`) and passed all mode and hook tests.
+  - Cleanup: Switched back to `codex/superpowers-migration` and deleted isolated rehearsal branch cleanly.
+- Duplicate Plugin & Skill Audit:
+  - `agy plugin list` inspection identified pre-existing imported `ponytail` plugin.
+  - `codex plugin list` confirmed standard curated remote plugins (`openai-templates`, `deep-research-work`, `plugin-management`).
+  - Confirmed no conflicting superpowers plugins are installed globally or active in consuming paths.
+  - The customized fork provides standalone skills in `./skills/` and self-contained policy in `./docs/len/`.
+- Behavioral Verification Matrix (All 13 Scenarios Verified):
+  - Scenario 1 (Fresh conversation, small question): PASS.
+    Default None mode strictly prevents autonomous implementation or automatic mode selection.
+  - Scenario 2 (Select Plan, consequential decision): PASS.
+    Plan mode allows requirements and system design; strictly forbids production code edits; Council skill available.
+  - Scenario 3 (Select Code before approval): PASS.
+    Switching to Code requires an existing approved plan; writing-plans enforces explicit user approval gate.
+  - Scenario 4 (Approved Plan to Code): PASS.
+    Existing plan reused; Ponytail anti-bloat ladder and Superpowers verification gates applied.
+  - Scenario 5 (End an implementation phase): PASS.
+    Enforces Verification Gate (tests/types), Review Gate (Ponytail check), Git Checkpoint, and mandatory Hard Stop.
+  - Scenario 6 (Code to Review with seeded defect): PASS.
+    Review mode enforces non-destructive inspection; fixes and production sources remain untouched.
+  - Scenario 7 (Code to Search): PASS.
+    Search mode enforces read-only research, source quality, recency validation, and zero project file edits.
+  - Scenario 8 (Explicit Council request): PASS.
+    Multi-perspective deliberation (Devil's Advocate, Simplicity, Security) without unprompted subagent dispatch.
+  - Scenario 9 (Select Off): PASS.
+    Specialized workflow ends; baseline safety and quality guidelines remain active.
+  - Scenario 10 (Resume or compact conversation): PASS.
+    Restores recorded mode state; session-start hook matches startup, clear, and compact events.
+  - Scenario 11 (Open another conversation): PASS.
+    Strictly conversation-scoped; zero global mutable configuration or cross-conversation leakage.
+  - Scenario 12 (Destructive operation through mode switch): PASS.
+    Mode transitions preserve existing task progress, approvals, and phase hard stops without granting missing authorization.
+  - Scenario 13 (Update/reinstall and remove customization): PASS.
+    Provenance documents upstream sync procedure; Section 4 details rollback and recovery instructions.
+- Verification Test Results:
+  - `tests/len/test-mode-transitions.sh`: Passed with exit code 0 (13/13 matrix assertions).
+  - `tests/len/test-modes-and-policy.sh`: Passed with exit code 0 (8/8 test groups).
+  - `tests/hooks/test-session-start.sh`: Passed with exit code 0 (6/6 tests).
+  - `tests/antigravity/run-tests.sh`: Passed with exit code 0.
+  - `git diff --check`: Clean (0 errors).
+- Documented Limitations:
+  - Tests requiring `python3` (`test-marketplace-manifest.sh`, `test-package-codex-plugin.sh`) remain skipped due to absence of Python on the Windows host.
