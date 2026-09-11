@@ -5,7 +5,11 @@ description: Use when executing implementation plans with independent tasks in t
 
 # Subagent-Driven Development
 
-Execute plan by dispatching a fresh implementer subagent per task, a task review (spec compliance + code quality) after each, and a broad whole-branch review at the end.
+<LEN-POLICY-GATE>
+Under this workspace's policy, single-agent execution with phased implementation plans and mandatory hard stops is enforced.
+Do NOT dispatch subagents or run unattended execution across phases unless your human partner explicitly grants permission.
+Use superpowers:executing-plans for standard sequential execution.
+</LEN-POLICY-GATE>
 
 **Why subagents:** You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history — you construct exactly what they need. This also preserves your own context for coordination work.
 

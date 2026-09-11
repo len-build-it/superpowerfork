@@ -1,8 +1,8 @@
 # Gemini handoff: Superpowers migration
 
 Created: 2026-09-11T09:45:43+08:00
-Revision: 5
-Status: Phase 2 completed and verified; Phase 3 approval pending.
+Revision: 6
+Status: Phase 3 completed and verified; Phase 4 approval pending.
 
 ## Read first
 
@@ -59,7 +59,8 @@ After forking, carry the execution records into the new checkout, identify the n
   Pinned upstream revision: `obra/superpowers` tag `v6.3.0` at `b36e0829c6d0140e93cfef2ca599b1b07d4a7797`.
   Mode contract and policy interpretations: approved per MIG-REQ-02 and MIG-REQ-03.
 - Phase 2: completed and verified (fork at `len-build-it/superpowerfork.git`, branch `codex/superpowers-migration`, exact policy verified in `docs/len/AGENTS.original.md`, adapter and loading mechanisms active).
-- Phase 3: pending Len's explicit confirmation to proceed.
+- Phase 3: completed and verified (mode selector added, Council and Ponytail suite integrated, process skills gated, tests passing).
+- Phase 4: pending Len's explicit confirmation to proceed.
 - Phase 4: not started.
 - Phase 5: not started.
 - Failed implementation attempts: none.

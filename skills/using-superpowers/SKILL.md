@@ -60,4 +60,27 @@ If your harness appears here, read its reference file for special instructions:
 
 ## User Instructions
 
-User instructions (CLAUDE.md, AGENTS.md, GEMINI.md, etc, direct requests) take precedence over skills, which in turn override default behavior. Only skip skill workflows or instructions when your human partner has explicitly told you to.
+User instructions (CLAUDE.md, AGENTS.md, GEMINI.md, etc, direct requests) take precedence over skills, which in turn override default behavior.
+Only skip skill workflows or instructions when your human partner has explicitly told you to.
+
+## Workflow Modes & Single-Agent Constraint
+
+This workspace operates under explicit conversation-scoped workflow modes via the `mode` skill:
+- **No mode selected:** General conversation, questions, and read-only inspection.
+  Do not start implementation or full Council without an explicit mode selection.
+- **Plan:** Creative design, requirements, and implementation plans (`brainstorming`, `writing-plans`).
+  Surface meaningful trade-offs with `council`.
+  Do not write production code.
+- **Code:** Authorized implementation, tests, debugging, and verification (`executing-plans`, `test-driven-development`, `systematic-debugging`).
+  Apply the Ponytail anti-bloat ladder to every line of code.
+  Always require an approved plan before beginning implementation edits.
+- **Review:** Non-destructive code review and simplicity inspection (`requesting-code-review`, `ponytail-review`).
+  Report findings without editing production files.
+- **Search:** Research, fact-checking, and documentation lookups.
+  No source file edits.
+- **Off:** Return to baseline conversation.
+
+### Single-Agent Execution
+Execute all tasks using a single primary agent.
+Do not dispatch subagents or parallel worker agents unless your human partner explicitly directs it.
+When a skill suggests subagent-driven development, use sequential single-agent execution with plan verification gates.

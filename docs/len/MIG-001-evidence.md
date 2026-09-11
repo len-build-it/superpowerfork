@@ -123,3 +123,29 @@ Environment: Windows 11, PowerShell, Node.js v20+, Git 2.45+
     `git diff --check` reported 0 errors.
   - Environment limitations:
     `test-marketplace-manifest.sh` and `test-package-codex-plugin.sh` require `python3`, which is unavailable in the Windows host environment.
+
+## 9. Phase 3 Explicit Modes, Ponytail, and Council Implementation Evidence
+
+- Timestamp: 2026-09-11T11:42:00+08:00.
+- Environment: Windows 11, PowerShell 5.1 / 7, Git 2.45+, Node.js v20+.
+- Mode Selector Implementation:
+  - Skill path: `skills/mode/SKILL.md`.
+  - Supported modes: `Plan`, `Code`, `Review`, `Search`, `Off` (with `None` as default state).
+  - Scope: Conversation-scoped; switching replaces previous mode; preserves task progress and approvals.
+  - Gates: Code mode explicitly checks for an approved plan before permitting implementation edits.
+- Specialist Skill Integration:
+  - Council integrated into `skills/council/SKILL.md`.
+  - Ponytail suite integrated into `skills/ponytail/`, `skills/ponytail-audit/`, `skills/ponytail-debt/`, `skills/ponytail-gain/`, `skills/ponytail-help/`, `skills/ponytail-review/`.
+  - Reconciled with approved contract: Ponytail principles apply across all code changes, full workflow active in Code mode.
+- Upstream Process Skill Updates:
+  - `skills/using-superpowers/SKILL.md`: Added explicit workflow mode definitions and single-agent execution constraint.
+  - `skills/writing-plans/SKILL.md`: Replaced automatic execution handoff with explicit human approval gate requiring `mode code` transition.
+  - `skills/executing-plans/SKILL.md`: Enforced sequential single-agent execution, Ponytail ladder, phase verification gates, and hard stops.
+  - `skills/subagent-driven-development/SKILL.md`: Added policy gate requiring explicit human authorization before any subagent dispatch.
+  - `skills/requesting-code-review/SKILL.md`: Added single-agent self-review path with Ponytail simplicity checks.
+- Verification Tests:
+  - `tests/len/test-modes-and-policy.sh`: Passed with exit code 0 (8/8 test groups).
+  - `tests/len/test-mode-transitions.sh`: Passed with exit code 0 (10/10 matrix assertions).
+  - `tests/hooks/test-session-start.sh`: Passed with exit code 0 (6/6 tests).
+  - `tests/antigravity/run-tests.sh`: Passed with exit code 0.
+  - `git diff --check`: Clean (0 errors).

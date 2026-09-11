@@ -1,6 +1,6 @@
 # Implementation Plan: MIG-001 - Migrate to a customized Superpowers fork
 
-> **Status:** Phase 2 completed and verified; Phase 3 approval pending.
+> **Status:** Phase 3 completed and verified; Phase 4 approval pending.
 > **Created:** 2026-09-11T09:45:43+08:00
 > **Target Branch:** `codex/superpowers-migration` in the new fork; inspect before creation.
 > **Test Command:** Legacy baseline: `npm test`; fork commands must be discovered and recorded in Phase 1.
@@ -198,26 +198,26 @@ Report policy-loading evidence and the installation scope; obtain approval befor
 
 ### Tasks
 
-- [ ] Add the approved mode selector, its metadata, and minimal bootstrap/transition changes identified in Phase 1.
-- [ ] Review all relevant skill descriptions and internal skill calls so no off-mode workflow bypasses the selector.
-- [ ] Integrate the chosen existing Ponytail and Council revisions with provenance; reconcile their persistent and automatic behavior with the approved contract.
-- [ ] Preserve Superpowers testing, debugging, verification, and code-review behavior within Code instead of building duplicate implementations.
-- [ ] Ensure Plan/Review/Search cannot silently enter production implementation, and Code respects phase stops and plan approval.
-- [ ] Enforce the migration's single-agent constraint throughout execution and review pathways.
-- [ ] Provide an observable response on explicit mode changes that identifies the selected mode and any pending approval; avoid repetitive status boilerplate on every response.
-- [ ] Add focused checks using upstream test infrastructure for new routing logic or metadata, without introducing a testing framework.
+- [x] Add the approved mode selector, its metadata, and minimal bootstrap/transition changes identified in Phase 1.
+- [x] Review all relevant skill descriptions and internal skill calls so no off-mode workflow bypasses the selector.
+- [x] Integrate the chosen existing Ponytail and Council revisions with provenance; reconcile their persistent and automatic behavior with the approved contract.
+- [x] Preserve Superpowers testing, debugging, verification, and code-review behavior within Code instead of building duplicate implementations.
+- [x] Ensure Plan/Review/Search cannot silently enter production implementation, and Code respects phase stops and plan approval.
+- [x] Enforce the migration's single-agent constraint throughout execution and review pathways.
+- [x] Provide an observable response on explicit mode changes that identifies the selected mode and any pending approval; avoid repetitive status boilerplate on every response.
+- [x] Add focused checks using upstream test infrastructure for new routing logic or metadata, without introducing a testing framework.
 
 ### Verification Gate
 
-- [ ] Run the recorded upstream checks and targeted new checks; run `git diff --check`.
-- [ ] Exercise no-mode, explicit Plan, Code, Review, Search, and Off in the primary client.
-- [ ] Verify a request to switch to Code does not bypass a missing approval or a phase hard stop.
-- [ ] Verify incidental review findings remain findings unless implementation is authorized.
+- [x] Run the recorded upstream checks and targeted new checks; run `git diff --check`.
+- [x] Exercise no-mode, explicit Plan, Code, Review, Search, and Off in the primary client.
+- [x] Verify a request to switch to Code does not bypass a missing approval or a phase hard stop.
+- [x] Verify incidental review findings remain findings unless implementation is authorized.
 
 ### Review Gate (Ponytail)
 
-- [ ] No redundant mode-specific copies of Superpowers workflows and no global mutable mode setting.
-- [ ] No silent weakening of the preserved policy, security, accessibility, or verification requirements.
+- [x] No redundant mode-specific copies of Superpowers workflows and no global mutable mode setting.
+- [x] No silent weakening of the preserved policy, security, accessibility, or verification requirements.
 
 ### Git Checkpoint and Hard Stop
 

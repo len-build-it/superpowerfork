@@ -29,21 +29,23 @@ BASE_SHA=$(git rev-parse HEAD~1)  # or origin/main
 HEAD_SHA=$(git rev-parse HEAD)
 ```
 
-**2. Dispatch code reviewer subagent:**
+**2. Review the changes (Single-Agent Execution):**
 
-Dispatch a `general-purpose` subagent, filling the template at [code-reviewer.md](code-reviewer.md)
+Under this workspace's policy, review is executed directly by the primary agent without dispatching subagents (unless explicitly authorized).
+Inspect the diff between `BASE_SHA` and `HEAD_SHA` against the criteria in [code-reviewer.md](code-reviewer.md) and run Ponytail simplicity review (`superpowers:ponytail-review`):
+- Verify spec compliance and correctness
+- Check for over-engineering, unused abstractions, and bloat
+- Verify test coverage and run test suite
+- Check error handling, edge cases, and cleanliness
 
-**Placeholders:**
-- `{DESCRIPTION}` - Brief summary of what you built
-- `{PLAN_OR_REQUIREMENTS}` - What it should do
-- `{BASE_SHA}` - Starting commit
-- `{HEAD_SHA}` - Ending commit
+If dispatching a subagent is explicitly authorized:
+Dispatch a `general-purpose` subagent filling the template at [code-reviewer.md](code-reviewer.md).
 
 **3. Act on feedback:**
 - Fix Critical issues immediately
 - Fix Important issues before proceeding
 - Note Minor issues for later
-- Push back if reviewer is wrong (with reasoning)
+- Push back if critique is incorrect (with reasoning)
 
 ## Example
 
