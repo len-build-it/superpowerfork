@@ -208,3 +208,25 @@ Environment: Windows 11, PowerShell, Node.js v20+, Git 2.45+
   - `git diff --check`: Clean (0 errors).
 - Documented Limitations:
   - Tests requiring `python3` (`test-marketplace-manifest.sh`, `test-package-codex-plugin.sh`) remain skipped due to absence of Python on the Windows host.
+
+## 11. Phase 5 Rollout and Legacy Retirement Evidence
+
+- Timestamp: 2026-09-11T12:15:00+08:00.
+- Rollout Documentation:
+  - Document path: `docs/len/ROLLOUT.md`.
+  - Details: Complete instructions for Antigravity / Gemini CLI, Codex CLI, Codex Desktop App, and Claude Code / Cursor.
+  - Mode syntax: `mode [plan|code|review|search|off]` with complete activity tables and gating rules.
+  - Upstream synchronization and maintenance procedure documented.
+  - Rollback to pristine upstream Superpowers (`git checkout v6.3.0`) and legacy bundle restoration documented.
+- Legacy CLI Analysis & Retirement:
+  - Inspected nature of `npx len-toolkit start`: Verified it is a one-shot scaffolding command and not a background daemon.
+  - Scanned global npm registry: `npm list -g --depth=0` shows `len-toolkit@1.1.0` locally linked to `Len's_Toolkit`.
+  - Documented in `ROLLOUT.md` that unlinking is performed via `npm rm -g len-toolkit` when authorized by Len.
+  - Successor notice added to root `README.md` directing users and agents to the Superpowers fork.
+- Legacy Archive Refresh & Preservation:
+  - Preserved canonical policy hash `86EE90450B7032F2CC0AED01DE32F069D81E555F6BBAEE08B286528861433463` byte-for-byte in `docs/len/AGENTS.original.md`.
+  - Legacy repository updated with successor pointer and archived safely.
+- Verification Checks:
+  - All mode and behavioral tests passing (13/13).
+  - All policy integration and hook tests passing (8/8 and 6/6).
+  - `git diff --check`: Clean (0 errors).

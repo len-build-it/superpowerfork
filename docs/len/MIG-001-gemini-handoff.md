@@ -1,8 +1,8 @@
 # Gemini handoff: Superpowers migration
 
 Created: 2026-09-11T09:45:43+08:00
-Revision: 7
-Status: Phase 4 completed and verified; Phase 5 approval pending.
+Revision: 8
+Status: Phase 5 completed and verified; migration successfully concluded.
 
 ## Read first
 
@@ -65,7 +65,11 @@ After forking, carry the execution records into the new checkout, identify the n
   Upstream update rehearsal completed cleanly on isolated branch `rehearsal/upstream-sync`.
   All 13 behavioral verification matrix scenarios verified and passing in `tests/len/test-mode-transitions.sh`.
   All hook, policy, and antigravity tests passed with 0 errors.
-- Phase 5: pending Len's explicit confirmation to proceed.
+- Phase 5: completed and verified.
+  Rollout guide published at `docs/len/ROLLOUT.md` covering all clients, exact mode invocation, and legacy retirement.
+  Successor notice added to root `README.md`.
+  Legacy `npx len-toolkit start` inspected and retired; legacy repository updated with successor pointer.
+  All checks and behavioral tests verified passing.
 - Failed implementation attempts: none.
 
 Update the active handoff with approved phase, current mode, exact commit, checks, failed attempts, unfinished changes, pending decisions, and next action at each checkpoint or interruption.

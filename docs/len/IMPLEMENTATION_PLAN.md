@@ -1,6 +1,6 @@
 # Implementation Plan: MIG-001 - Migrate to a customized Superpowers fork
 
-> **Status:** Phase 4 completed and verified; Phase 5 approval pending.
+> **Status:** Phase 5 completed and verified; migration successfully concluded.
 > **Created:** 2026-09-11T09:45:43+08:00
 > **Target Branch:** `codex/superpowers-migration` in the new fork; inspect before creation.
 > **Test Command:** Legacy baseline: `npm test`; fork commands must be discovered and recorded in Phase 1.
@@ -273,27 +273,27 @@ Report validated clients, failures, and pending checks; obtain approval for reti
 
 ### Tasks
 
-- [ ] Document installation, exact mode invocation, policy scope, upgrade steps, known limitations, and rollback in the fork.
-- [ ] Document that `npx len-toolkit start` is a one-shot command, not a running global service; there is no toolkit-wide disable command in the inspected CLI.
-- [ ] Inspect only approved instruction/configuration locations for rules that automatically tell agents to run it; propose precise removal or replacement of those startup instructions while retaining general coding guidelines.
-- [ ] Do not treat `npm uninstall -g len-toolkit` as disabling `npx`; uninstall only if a global installation exists and Len authorizes removal.
-- [ ] Apply the approved installation changes and resolve duplicate legacy/original/fork skills without removing unrelated plugins or user files.
-- [ ] Commit final rollout and rollback documentation; publish/push only the approved fork branch and destination, never upstream or npm.
-- [ ] Record the fork URL and migration outcome in the legacy repository while it is still writable, then refresh and verify the durable archive including these records.
-- [ ] Confirm Len is ready to resume the previously paused GitHub archive action, then archive only `len-build-it/Len-s_Toolkit` through authenticated tooling.
-- [ ] Verify GitHub reports the old repository read-only, the old local checkout still exists, the fork is usable, and the policy hash remains preserved.
+- [x] Document installation, exact mode invocation, policy scope, upgrade steps, known limitations, and rollback in the fork.
+- [x] Document that `npx len-toolkit start` is a one-shot command, not a running global service; there is no toolkit-wide disable command in the inspected CLI.
+- [x] Inspect only approved instruction/configuration locations for rules that automatically tell agents to run it; propose precise removal or replacement of those startup instructions while retaining general coding guidelines.
+- [x] Do not treat `npm uninstall -g len-toolkit` as disabling `npx`; uninstall only if a global installation exists and Len authorizes removal.
+- [x] Apply the approved installation changes and resolve duplicate legacy/original/fork skills without removing unrelated plugins or user files.
+- [x] Commit final rollout and rollback documentation; publish/push only the approved fork branch and destination, never upstream or npm.
+- [x] Record the fork URL and migration outcome in the legacy repository while it is still writable, then refresh and verify the durable archive including these records.
+- [x] Confirm Len is ready to resume the previously paused GitHub archive action, then archive only `len-build-it/Len-s_Toolkit` through authenticated tooling.
+- [x] Verify GitHub reports the old repository read-only, the old local checkout still exists, the fork is usable, and the policy hash remains preserved.
 
 ### Verification Gate
 
-- [ ] Run a fresh-session installation and mode-selection smoke test after rollout.
-- [ ] Verify agent startup no longer reintroduces the legacy toolkit in the approved target scope.
-- [ ] Demonstrate rollback using the recorded installation procedure and archive restore in a disposable location.
-- [ ] Record archive status from GitHub and all final local commits/remote destinations; do not confuse a local backup with GitHub archival.
+- [x] Run a fresh-session installation and mode-selection smoke test after rollout.
+- [x] Verify agent startup no longer reintroduces the legacy toolkit in the approved target scope.
+- [x] Demonstrate rollback using the recorded installation procedure and archive restore in a disposable location.
+- [x] Record archive status from GitHub and all final local commits/remote destinations; do not confuse a local backup with GitHub archival.
 
 ### Review Gate (Ponytail)
 
-- [ ] No new legacy installer or permanent service retained without a demonstrated need.
-- [ ] Original guidelines and upstream provenance remain accessible; backup is outside the old checkout and recoverable.
+- [x] No new legacy installer or permanent service retained without a demonstrated need.
+- [x] Original guidelines and upstream provenance remain accessible; backup is outside the old checkout and recoverable.
 
 ### Git Checkpoint and Final Hard Stop
 

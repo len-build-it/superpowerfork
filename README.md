@@ -2,6 +2,10 @@
 
 Superpowers is a complete software development methodology for your coding agents, built on top of a set of composable skills and some initial instructions that make sure your agent uses them.
 
+> **Len's Custom Fork:**
+> This repository includes Len's canonical policy guidelines, explicit conversation-scoped workflow modes (Plan, Code, Review, Search, Off), Ponytail anti-bloat principles, and Council deliberation.
+> See [docs/len/ROLLOUT.md](docs/len/ROLLOUT.md) for rollout details and legacy toolkit retirement guidance.
+
 ## Table of Contents
 
 - [How it works](#how-it-works)
